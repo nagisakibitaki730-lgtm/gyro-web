@@ -2,10 +2,9 @@ const canvas = document.getElementById('c');
 const context = canvas.getContext('2d');
 const debugElement = document.getElementById('debug');
 const button = document.getElementById('btn');
-const petals = [];
 
 const petalCount = 90;
-
+const petals = [];
 const petalImg = new Image();
 petalImg.src = 'img/petal.png';
 
@@ -127,7 +126,7 @@ function onMotion(e) {
     tiltX = clamp(virtualAccelX / 9.8, -1, 1);
     tiltY = clamp(virtualAccelY / 9.8, -1, 1);
 
-    if (debugElement !==null) {
+    if (debugElement !== null) {
         debugElement.textContent = `OS:${isIOS ? 'iOS' : isAndroid ? 'Android' : 'Other'}angle:${screenAngle} tiltX:${tiltX.toFixed(2)} tiltY:${tiltY.toFixed(2)}`;
     }
 }
@@ -169,7 +168,7 @@ function tick(now) {
                 newPetal.x = rand(-30, innerWidth * 0.2);
             }
             if (wind < -30) {
-                newPetal.X = rand(innerWidth * 0.8, innerWidth +30);
+                newPetal.x = rand(innerWidth * 0.8, innerWidth +30);
             }
 
             petals[i] = newPetal;
